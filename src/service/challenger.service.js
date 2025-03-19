@@ -8,6 +8,7 @@ export class ChallengerService {
 
    createRequestOptions(urls, header, element = '', body = null) {
       const url = element ? `${urls}${element}` : `${urls}`;
+      
       const options = {
          headers: header
       };
@@ -15,11 +16,12 @@ export class ChallengerService {
       if (body) {
          options.data = body;
       }
-
+      
       return { url, options };
    }
    
    async postChallenger(urls) {
+      console.log(urls);
       const response = await this.request.post(`${urls}`);
       return response;
    }
@@ -61,6 +63,7 @@ export class ChallengerService {
 
    async get(urls, header, element = '', body = null) {
       const { url, options } = this.createRequestOptions(urls, header, element, body);
+      
       const response = await this.request.get(url, options);
       return response;
    }

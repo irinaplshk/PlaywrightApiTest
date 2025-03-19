@@ -6,9 +6,9 @@ import {URLs} from '../src/structures/index';
 
 
 const tokenFile = 'playwright/.authtoken/token.json';
-
+const tokenFilePrevious = 'playwright/.authtoken/tokenPrevious.json';
 setup('get token ', async ({ request }) => {
-    
+
     let  challengerService = new ChallengerService(request);
     const response = await challengerService.postChallenger(URLs.challenger);
 
